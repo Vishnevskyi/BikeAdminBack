@@ -36,7 +36,7 @@ exports.getBikes = async (req, res) => {
         else {
             for (let i = 0; i < result.length; i++)
             {
-                price = result[i].price + price;
+                price = Number(result[i].price) + Number(price);
                 if (result[i].status === "Available")
                 {
                     AvailableBikes++;                    
