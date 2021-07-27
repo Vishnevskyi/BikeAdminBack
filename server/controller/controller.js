@@ -27,6 +27,7 @@ exports.insertBike = async (req, res) => {
 exports.getBikes = async (req, res) => {
     let AvailableBikes = 0;
     let BookedBikes = 0;
+    let price = 0;
     await Bike.find(async (err, result) => {
         if (err) {
             console.log(err);
@@ -35,6 +36,7 @@ exports.getBikes = async (req, res) => {
         else {
             for (let i = 0; i < result.length; i++)
             {
+                price = result[i].price + price;
                 if (result[i].status === "Available")
                 {
                     AvailableBikes++;                    
@@ -44,7 +46,7 @@ exports.getBikes = async (req, res) => {
                     BookedBikes++;                    
                 }
             }
-            res.status(200).json({ bikes: result, Total: result.length, Available: AvailableBikes, Booked: BookedBikes });
+            res.status(200).json({ bikes: result, Total: result.length, Available: AvailableBikes, Booked: BookedBikes, price: price });
         }
     })
 }
