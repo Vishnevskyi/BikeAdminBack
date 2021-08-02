@@ -46,6 +46,7 @@ exports.getBikes = async (req, res) => {
                     BookedBikes++;                    
                 }
             }
+            price = price / result.length;
             res.status(200).json({ bikes: result, Total: result.length, Available: AvailableBikes, Booked: BookedBikes, price: price });
         }
     })
