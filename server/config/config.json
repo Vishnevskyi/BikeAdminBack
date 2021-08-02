@@ -1,3 +1,3 @@
 {
-    "mongoUrl": ""
+    "mongoUrl": "mongodb+srv://Bodyan:Portechko@cluster0.ct9de.mongodb.net/mongoosetesttaskdb?retryWrites=true&w=majority"
 }
